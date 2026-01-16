@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import DevicesOutlinedIcon from '@mui/icons-material/DevicesOutlined';
-import BuildCircleOutlinedIcon from '@mui/icons-material/BuildCircleOutlined';
 import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
+import TerminalOutlinedIcon from '@mui/icons-material/TerminalOutlined';
 import '../style/Navbar.scss'
 const Navbar = () => {
     return (
@@ -30,7 +30,7 @@ const Navbar = () => {
                 <li>
                     <Link to='/skills'>
                         <div>
-                            <span><BuildCircleOutlinedIcon /></span>
+                            <span><TerminalOutlinedIcon /></span>
                             <p>Skills</p>
                         </div>
                     </Link>
