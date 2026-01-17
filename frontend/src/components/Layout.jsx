@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 const Layout = () => {
     return (
         <>
-            <header className='min-w-screen fixed top-5 flex justify-center items-center'>
+            <header className='min-w-screen z-50 fixed top-5 flex justify-center items-center'>
                 <Navbar />
             </header>
             <main className='min-h-screen'

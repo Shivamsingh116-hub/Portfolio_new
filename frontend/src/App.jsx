@@ -9,6 +9,7 @@ import About from './components/About'
 const App = () => {
   return (
     <>
+    
       <Routes>
         <Route element={<Layout />}>
           <Route path='/' element={<Home />} />
