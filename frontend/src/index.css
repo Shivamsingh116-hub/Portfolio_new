@@ -16,6 +16,14 @@
     color: #242424;
     background-color: #ffffff;
   }
+  body h1{
+    font-size: 3.2em;
+    font-weight: 600;
+  }
+  body h2{
+    font-size: 2.5em;
+    font-weight: 600;
+  }
 }
 
 /* ✅ FIXED SHINE ANIMATION */
