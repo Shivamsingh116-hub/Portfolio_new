@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react'
 import Navbar from './Navbar'
 import { Outlet } from 'react-router-dom'
+import Footer from './Footer'
 
 const Layout = () => {
     return (
@@ -15,6 +16,9 @@ const Layout = () => {
                     <Outlet />
                 </Suspense>
             </main>
+            <footer>
+                <Footer />
+            </footer>
         </>
     )
 }
