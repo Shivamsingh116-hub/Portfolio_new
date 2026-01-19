@@ -15,9 +15,10 @@
 
         li {
             .nav-item {
-                color: rgba(59, 130, 246, 0.9);
+                color: #3b82f6;
                 display: flex;
                 gap: 5px;
+                font-weight: 500;
                 transition: transform 0.1s ease-in-out, color 0.3s ease-in-out;
 
                 &:hover {

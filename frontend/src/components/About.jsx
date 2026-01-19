@@ -4,7 +4,7 @@ const About = () => {
   return (
     <main
       className="min-h-screen flex items-center justify-center
-      bg-gradient-to-l from-violet-400 to-violet-100"
+    lg:bg-gradient-to-r bg-gradient-to-b from-blue-500/30 via-blue-500/10 to-transparent"
     >
 
       <section
@@ -17,15 +17,13 @@ const About = () => {
         <header>
           <h1
             id="about-heading"
-            className="relative not-md:text-3xl text-violet-400
-            [text-shadow:-2px_-2px_2px_rgba(0,0,0,0.5),2px_2px_2px_rgba(255,255,255,0.8)]"
-          >
+            className="relative not-md:text-3xl
+             bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent"          >
             01. IDENTITY
             <span
               aria-hidden="true"
               className="absolute not-md:bottom-0 bottom-2 left-0
-              [box-shadow:-8px_-8px_16px_rgba(0,0,0,0.4),8px_8px_16px_rgba(255,255,255,0.8)]
-              bg-violet-400 h-0.5 w-full"
+              bg-gradient-to-r from-blue-500 to-indigo-500  h-0.5 w-full"
             ></span>
           </h1>
         </header>
@@ -45,24 +43,21 @@ const About = () => {
           w-full justify-center"
         >
           <li>
-            <p className="text-2xl md:text-3xl font-bold text-violet-400
-              [text-shadow:-2px_-2px_2px_rgba(0,0,0,0.5),2px_2px_2px_rgba(255,255,255,0.8)]">
+            <p className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">
               3+
             </p>
             <p>PROJECTS</p>
           </li>
 
           <li>
-            <p className="text-2xl md:text-3xl font-bold text-violet-400
-              [text-shadow:-2px_-2px_2px_rgba(0,0,0,0.5),2px_2px_2px_rgba(255,255,255,0.8)]">
+            <p className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">
               7.0+
             </p>
             <p>CGPA</p>
           </li>
 
           <li>
-            <p className="text-2xl md:text-3xl font-bold text-violet-400
-              [text-shadow:-2px_-2px_2px_rgba(0,0,0,0.5),2px_2px_2px_rgba(255,255,255,0.8)]">
+            <p className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">
               M E R N
             </p>
             <p>CERTIFICATE</p>

@@ -26,11 +26,11 @@ const Footer = () => {
             Navigation
           </h2>
           <ul className="mt-2 space-y-1 text-sm">
-            <li><a href="#home" className="hover:underline">Home</a></li>
-            <li><a href="#about" className="hover:underline">About</a></li>
-            <li><a href="#skills" className="hover:underline">Skills</a></li>
-            <li><a href="#projects" className="hover:underline">Projects</a></li>
-            <li><a href="#contact" className="hover:underline">Contact</a></li>
+            <li><a href="/" className="hover:underline">Home</a></li>
+            <li><a href="/about" className="hover:underline">About</a></li>
+            <li><a href="/skills" className="hover:underline">Skills</a></li>
+            <li><a href="/project" className="hover:underline">Projects</a></li>
+            <li><a href="/contact" className="hover:underline">Contact</a></li>
           </ul>
         </nav>
 
@@ -42,7 +42,7 @@ const Footer = () => {
           <ul className="mt-2 space-y-1 text-sm">
             <li>
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/Shivamsingh116-hub"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -51,7 +51,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="www.linkedin.com/in/shivamsingh116"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -59,7 +59,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="mailto:your@email.com">Email</a>
+              <a href="solankishivam@email.com">Email</a>
             </li>
           </ul>
         </section>

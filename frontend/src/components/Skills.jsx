@@ -29,11 +29,11 @@ const Skills = () => {
     <section
       id="skills"
       aria-labelledby="skills-heading"
-      style={{ backgroundColor: "#D6DBE4" }}
-      className="bg-surface flex flex-col items-center min-h-screen w-full p-10"
+      className=" lg:bg-gradient-to-r bg-gradient-to-b from-blue-500/30 via-blue-500/10 to-transparent
+      bg-surface flex flex-col items-center min-h-screen w-full p-10"
     >
       <header className="mb-12 mt-32">
-        <h2 id="skills-heading" className="relative text-3xl text-blue-500/70">
+        <h2 id="skills-heading" className="relative text-3xl bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">
           02. ARSENAL
           <span
             aria-hidden="true"
@@ -62,7 +62,7 @@ const Skills = () => {
               aria-hidden="true"
               className="
             relative p-5 rounded-lg
-          text-blue-500/70
+            text-blue-500
             [box-shadow:inset_-8px_-8px_10px_rgba(255,255,255,0.8),inset_8px_8px_8px_rgba(0,0,0,0.2)]
           "
             >
@@ -75,7 +75,7 @@ const Skills = () => {
               </h3>
             </header>
 
-            <ul className="mt-4 flex flex-wrap text-blue-500/90 justify-center gap-3">
+            <ul className="mt-4 flex flex-wrap bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent justify-center gap-3">
               {items.map((skill) => (
                 <li
                   key={skill}
