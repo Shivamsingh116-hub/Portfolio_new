@@ -16,7 +16,7 @@ const Contact = () => {
         className="
           w-full max-w-5xl mt-24
           bg-surface rounded-xl
-          p-10 md:p-14
+          p-6 md:p-14
           [box-shadow:-8px_-8px_16px_rgba(255,255,255,0.8),8px_8px_20px_rgba(0,0,0,0.5)]
         "
       >
