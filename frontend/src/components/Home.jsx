@@ -79,12 +79,15 @@ const Home = () => {
           aria-label="Open profile photo"
           className="h-56 z-40 w-56 cursor-pointer overflow-hidden rounded-full
           bg-gradient-to-br from-slate-200 to-blue-200 shadow-lg
-          sm:h-64 sm:w-64 lg:h-96 lg:w-96"
+          sm:h-64 sm:w-64 lg:h-96 lg:w-96
+          "
         >
           <img
             src={profileImg}
             alt="Shivam Singh AI-Native Full Stack Developer profile photo"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover 
+            transition-transform duration-300 hover:scale-105
+"
             loading="eager"
             decoding="async"
           />
