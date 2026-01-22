@@ -13,7 +13,7 @@ const server = http.createServer(async (req, res) => {
     /* =====================
        CORS (robust)
     ====================== */
-    res.setHeader("Access-Control-Allow-Origin", process.env.FRONTEND_URL);
+    res.setHeader("Access-Control-Allow-Origin", process.env.FRONTEND_URL || "https://shivamsingh116.vercel.app/" );
     res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     if (req.method === "OPTIONS") {
