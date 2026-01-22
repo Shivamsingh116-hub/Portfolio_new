@@ -16,13 +16,13 @@ const server = http.createServer(async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", process.env.FRONTEND_URL);
     res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    if (req.url !== "/form_data") {
-        res.writeHead(404);
-        return res.end("Not Found");
-    }
     if (req.method === "OPTIONS") {
         res.writeHead(204);
         return res.end();
+    }
+    if (req.url !== "/form_data") {
+        res.writeHead(404);
+        return res.end("Not Found");
     }
 
     /* =====================
