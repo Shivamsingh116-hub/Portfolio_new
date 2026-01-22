@@ -1,16 +1,19 @@
 const http = require("http");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
-
+const transporter = nodemailer.createTransport({
+                service: "gmail",
+                auth: {
+                    user: process.env.USER_EMAIL,
+                    pass: process.env.USER_PASSWORD
+                }
+            });
 const server = http.createServer(async (req, res) => {
 
     /* =====================
        CORS (robust)
     ====================== */
-    res.setHeader(
-        "Access-Control-Allow-Origin",
-        process.env.FRONTEND_URL
-    );
+    res.setHeader("Access-Control-Allow-Origin", process.env.FRONTEND_URL);
     res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
@@ -32,7 +35,7 @@ const server = http.createServer(async (req, res) => {
     ====================== */
     let body = "";
     req.on("data", chunk => body += chunk);
-
+    console.log(body)
     req.on("end", async () => {
         try {
             if (!body) {
@@ -53,17 +56,6 @@ const server = http.createServer(async (req, res) => {
                 res.writeHead(400);
                 return res.end("Invalid contact number");
             }
-
-            /* =====================
-               Mail Transport
-            ====================== */
-            const transporter = nodemailer.createTransport({
-                service: "gmail",
-                auth: {
-                    user: process.env.USER_EMAIL,
-                    pass: process.env.USER_PASSWORD
-                }
-            });
 
             /* =====================
                Mail Content
