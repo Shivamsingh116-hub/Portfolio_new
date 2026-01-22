@@ -1,19 +1,13 @@
 const http = require("http");
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 require("dotenv").config();
-const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-        user: process.env.USER_EMAIL,
-        pass: process.env.USER_PASSWORD
-    }
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 const server = http.createServer(async (req, res) => {
 
     /* =====================
        CORS (robust)
     ====================== */
-    res.setHeader("Access-Control-Allow-Origin", process.env.FRONTEND_URL || "https://shivamsingh116.vercel.app" );
+    res.setHeader("Access-Control-Allow-Origin", process.env.FRONTEND_URL || "https://shivamsingh116.vercel.app");
     res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     if (req.method === "OPTIONS") {
@@ -63,8 +57,8 @@ const server = http.createServer(async (req, res) => {
             /* =====================
                Mail Content
             ====================== */
-            await transporter.sendMail({
-                from: `"Portfolio Contact" <${process.env.USER_EMAIL}>`,
+            await resend.emails.send({
+                from: `"Portfolio Contact" <onboarding@resend.dev>`,
                 to: process.env.RECEIVER_EMAIL,
                 subject: `📩 New Portfolio Inquiry from ${Name}`,
                 text: `
