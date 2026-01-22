@@ -9,16 +9,7 @@ import About from './components/About'
 const App = () => {
   return (
     <>
-    
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/project' element={<Project />} />
-          <Route path='/skills' element={<Skills />} />
-        </Route>
-      </Routes>
+      <Layout />
     </>
   )
 }

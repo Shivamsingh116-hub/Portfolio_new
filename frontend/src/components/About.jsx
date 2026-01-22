@@ -1,50 +1,56 @@
 import React from 'react';
-
+import { motion } from 'framer-motion'
 const stats = [
   { value: '5+', label: 'PROJECTS BUILT' },
   { value: '7.0+', label: 'CGPA' },
   { value: 'MERN', label: 'CERTIFIED' },
 ];
 
-const About = () => {
+const About = ({ ref }) => {
   return (
-    <section
+    <motion.section
+
+      ref={ref}
       id="about"
       aria-labelledby="about-heading"
       className="
-        min-h-screen w-full
-        flex items-center justify-center
-        lg:bg-gradient-to-r bg-gradient-to-b
+        max-h-screen w-full
+        flex  justify-center items-center flex-col
+        bg-gradient-to-r 
         from-blue-500/30 via-blue-500/10 to-transparent
         bg-surface p-10
       "
     >
-      <article
-        className="
-          w-full max-w-4xl mt-20
-          bg-surface rounded-xl
-          p-10 md:p-14
-          flex flex-col items-center text-center
-          [box-shadow:-8px_-8px_16px_rgba(255,255,255,0.8),8px_8px_20px_rgba(0,0,0,0.5)]
-        "
-      >
-        {/* Header */}
-        <header className="mb-6">
-          <h2
-            id="about-heading"
-            className="relative text-3xl bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent"
-          >
-            01. IDENTITY
-            <span
-              aria-hidden="true"
-              className="
+      <header className="mb-16 mt-14 ">
+        <h2
+          id="about-heading"
+          className="relative text-3xl bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent"
+        >
+          01. IDENTITY
+          <span
+            aria-hidden="true"
+            className="
                 absolute bottom-0 left-0 h-0.5 w-full
                 bg-blue-500/70
                 [box-shadow:-8px_-8px_16px_rgba(0,0,0,0.4),8px_8px_16px_rgba(255,255,255,0.8)]
               "
-            />
-          </h2>
-        </header>
+          />
+        </h2>
+      </header>
+      <motion.article
+        initial={{ opacity: 0, scale: 0.5, y: -50 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.5 }}
+        transition={{ duration: 0.5 }}
+        className="
+          w-full md:max-w-[90%] 
+          bg-surface rounded-xl
+          p-8 md:p-14
+          flex flex-col items-center text-center
+          [box-shadow:-8px_-8px_16px_rgba(255,255,255,0.8),8px_8px_20px_rgba(0,0,0,0.5)]
+        "
+      >
+
 
         {/* Description */}
         <p className="mt-4 max-w-3xl text-sm md:text-base leading-relaxed text-gray-600">
@@ -83,8 +89,8 @@ const About = () => {
             </li>
           ))}
         </ul>
-      </article>
-    </section>
+      </motion.article>
+    </motion.section>
   );
 };
 

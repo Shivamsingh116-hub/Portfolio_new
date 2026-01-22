@@ -1,53 +1,88 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
-import DevicesOutlinedIcon from '@mui/icons-material/DevicesOutlined'
-import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined'
-import TerminalOutlinedIcon from '@mui/icons-material/TerminalOutlined'
-import '../style/Navbar.scss'
+import React from "react";
+import { motion } from "framer-motion";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import DevicesOutlinedIcon from "@mui/icons-material/DevicesOutlined";
+import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
+import TerminalOutlinedIcon from "@mui/icons-material/TerminalOutlined";
+import "../style/Navbar.scss";
 
-const Navbar = () => {
+const Navbar = ({ onHome, onAbout, onSkills, onProject, onContact }) => {
+  // Motion variants for the navbar
+  const navbarVariants = {
+    hidden: { y: -100, opacity: 0 }, // start above viewport
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 120, damping: 20, duration: 0.8 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: -20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.4 },
+    },
+  };
+
   return (
-    <nav id="navbar-component" aria-label="Main navigation">
+    <motion.nav
+      id="navbar-component"
+      aria-label="Main navigation"
+      variants={navbarVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <ul id="nav-items">
-        <li>
-          <Link className='nav-item' to="/" aria-label="Home page">
-            <span aria-hidden="true"><HomeOutlinedIcon /></span>
+        <motion.li variants={itemVariants}>
+          <button onClick={onHome} className="nav-item" aria-label="Home Page">
+            <span aria-hidden="true">
+              <HomeOutlinedIcon />
+            </span>
             <span>Home</span>
-          </Link>
-        </li>
+          </button>
+        </motion.li>
 
-        <li>
-          <Link className='nav-item' to="/about" aria-label="About page">
-            <span aria-hidden="true"><InfoOutlinedIcon /></span>
+        <motion.li variants={itemVariants}>
+          <button onClick={onAbout} className="nav-item" aria-label="About Page">
+            <span aria-hidden="true">
+              <InfoOutlinedIcon />
+            </span>
             <span>About</span>
-          </Link>
-        </li>
+          </button>
+        </motion.li>
 
-        <li>
-          <Link className='nav-item' to="/skills" aria-label="Skills page">
-            <span aria-hidden="true"><TerminalOutlinedIcon /></span>
+        <motion.li variants={itemVariants}>
+          <button onClick={onSkills} className="nav-item" aria-label="Skills Page">
+            <span aria-hidden="true">
+              <TerminalOutlinedIcon />
+            </span>
             <span>Skills</span>
-          </Link>
-        </li>
+          </button>
+        </motion.li>
 
-        <li>
-          <Link className='nav-item' to="/project" aria-label="Projects page">
-            <span aria-hidden="true"><DevicesOutlinedIcon /></span>
+        <motion.li variants={itemVariants}>
+          <button onClick={onProject} className="nav-item" aria-label="Projects Page">
+            <span aria-hidden="true">
+              <DevicesOutlinedIcon />
+            </span>
             <span>Projects</span>
-          </Link>
-        </li>
+          </button>
+        </motion.li>
 
-        <li>
-          <Link className='nav-item' to="/contact" aria-label="Contact page">
-            <span aria-hidden="true"><ChatOutlinedIcon /></span>
+        <motion.li variants={itemVariants}>
+          <button onClick={onContact} className="nav-item" aria-label="Contact page">
+            <span aria-hidden="true">
+              <ChatOutlinedIcon />
+            </span>
             <span>Contact</span>
-          </Link>
-        </li>
+          </button>
+        </motion.li>
       </ul>
-    </nav>
-  )
-}
+    </motion.nav>
+  );
+};
 
-export default Navbar
+export default Navbar;
