@@ -2,12 +2,12 @@ const http = require("http");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 const transporter = nodemailer.createTransport({
-                service: "gmail",
-                auth: {
-                    user: process.env.USER_EMAIL,
-                    pass: process.env.USER_PASSWORD
-                }
-            });
+    service: "gmail",
+    auth: {
+        user: process.env.USER_EMAIL,
+        pass: process.env.USER_PASSWORD
+    }
+});
 const server = http.createServer(async (req, res) => {
 
     /* =====================
@@ -16,7 +16,10 @@ const server = http.createServer(async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", process.env.FRONTEND_URL);
     res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
+    if (req.url !== "/form_data") {
+        res.writeHead(404);
+        return res.end("Not Found");
+    }
     if (req.method === "OPTIONS") {
         res.writeHead(204);
         return res.end();

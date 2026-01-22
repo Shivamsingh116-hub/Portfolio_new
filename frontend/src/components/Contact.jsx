@@ -2,27 +2,39 @@ import React, { useState } from 'react';
 const apiUrl = import.meta.env.VITE_API_URL
 const Contact = () => {
   const [formData, setFormData] = useState({
-    Name: "",
-    ContactNO: "",
-    Message: ""
-  })
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    fetch(`${apiUrl}/form_data`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(
-        formData
-      )
-    }).then((res) => {
-      console.log(res)
-    }).catch((err) => {
-      console.log(err)
-    })
-    console.log("Submit")
-  }
+  Name: "",
+  ContactNo: "",
+  Message: ""
+});
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch(`${apiUrl}/form_data`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      setFormData({
+        Name: "",
+        ContactNo: "",
+        Message: "",
+      });
+
+      console.log("Form submitted successfully");
+    } catch (error) {
+      console.error("Submission error:", error);
+    }
+  };
+
 
   console.log(formData)
   return (
