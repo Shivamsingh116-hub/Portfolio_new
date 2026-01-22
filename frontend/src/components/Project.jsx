@@ -2,27 +2,34 @@ import React from 'react';
 
 const projectsData = [
   {
-    id: 'hospital-management',
-    title: 'Hospital Management System',
+    id: 'gramhub',
+    title: 'Gramhub',
     description:
-      'A full-stack system with authentication, role-based access, and secure patient data handling.',
+      'A secure full-stack file upload and management system with authentication and cross-device access.',
     tech: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT'],
+    liveUrl: 'https://gramhub.netlify.app',
+    githubUrl: 'https://github.com/yourusername/gramhub',
   },
   {
-    id: 'file-upload',
-    title: 'Secure File Upload System',
+    id: 'ai-resume-screener',
+    title: 'AI Resume Screener',
     description:
-      'Authenticated file upload and access across devices using MongoDB storage.',
-    tech: ['React', 'Node.js', 'MongoDB'],
+      'An AI-powered system that analyzes resumes, scores candidates, and shortlists profiles based on job requirements.',
+    tech: ['Python', 'MERN', 'Flask', 'NLP'],
+    liveUrl: 'https://airesumescreener.vercel.app',
+    githubUrl: 'https://github.com/yourusername/ai-resume-screener',
   },
   {
     id: 'portfolio',
     title: 'Developer Portfolio',
     description:
-      'A personal portfolio website built with accessibility, SEO, and modern UI principles.',
-    tech: ['React', 'Tailwind CSS'],
+      'A high-performance personal portfolio showcasing projects, skills, and experience with modern UI and SEO best practices.',
+    tech: ['React', 'Tailwind CSS','Node.js'],
+    liveUrl: 'https://shivamsingh116.vercel.app',
+    githubUrl: 'https://github.com/yourusername/portfolio',
   },
 ];
+
 
 const Project = () => {
   return (
@@ -56,7 +63,7 @@ const Project = () => {
 
       {/* Projects Grid */}
       <div className="grid gap-20 lg:grid-cols-3">
-        {projectsData.map(({ id, title, description, tech }) => (
+        {projectsData.map(({ id, title, description, tech, liveUrl }) => (
           <article
             key={id}
             aria-labelledby={`${id}-title`}
@@ -97,7 +104,27 @@ const Project = () => {
                   <strong>{item}</strong>
                 </li>
               ))}
+
             </ul>
+            <div className="mt-8 flex gap-4">
+              {liveUrl && (
+                <a
+                  href={liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+        px-6 py-2 rounded-lg text-sm font-semibold
+        bg-gradient-to-r from-blue-500 to-indigo-500
+        text-white transition-transform duration-200
+        hover:-translate-y-0.5
+        focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500
+      "
+                  aria-label={`View live demo of ${title}`}
+                >
+                  Live Demo
+                </a>
+              )}
+            </div>
           </article>
         ))}
       </div>

@@ -1,6 +1,30 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+const apiUrl = import.meta.env.VITE_API_URL
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    Name: "",
+    ContactNO: "",
+    Message: ""
+  })
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    fetch(`${apiUrl}/form_data`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(
+        formData
+      )
+    }).then((res) => {
+      console.log(res)
+    }).catch((err) => {
+      console.log(err)
+    })
+    console.log("Submit")
+  }
+
+  console.log(formData)
   return (
     <section
       id="contact"
@@ -78,39 +102,49 @@ const Contact = () => {
               Send a Message
             </h3>
 
-            <form className="mt-6 flex flex-col gap-5">
-              {['Name', 'Email'].map((label) => (
-                <label key={label} className="relative">
+            <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-5">
+              {[
+                { label: 'Name', key: 'Name', type: 'text' },
+                { label: 'Contact No', key: 'ContactNo', type: 'tel' }
+              ].map(({ label, key, type }) => (
+                <label key={key} className="relative">
                   <input
-                    type="text"
+                    type={type}
                     required
                     placeholder=" "
+                    value={formData[key]}
+                    onChange={(e) =>
+                      setFormData({ ...formData, [key]: e.target.value })
+                    }
                     className="
-                      peer w-full h-12 rounded-md
-                      bg-surface px-4
-                      focus:outline-none
-                      bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent
-                      [box-shadow:inset_-4px_-4px_6px_rgba(255,255,255,0.8),inset_4px_4px_6px_rgba(0,0,0,0.25)]
-                    "
+        peer w-full h-12 rounded-md
+        bg-surface px-4
+        focus:outline-none
+        bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent
+        [box-shadow:inset_-4px_-4px_6px_rgba(255,255,255,0.8),inset_4px_4px_6px_rgba(0,0,0,0.25)]
+      "
                   />
                   <span
                     className="
-                      pointer-events-none absolute left-4 top-1/2 -translate-y-1/2
-                      text-sm text-blue-500 transition-all
-                      peer-focus:top-0 peer-focus:text-xs peer-focus:px-2 peer-focus:bg-white peer-focus:rounded-lg
-                      peer-valid:top-0 peer-valid:text-xs peer-valid:px-2 peer-valid:bg-white peer-valid:rounded-lg
-                    "
+        pointer-events-none absolute left-4 top-1/2 -translate-y-1/2
+        text-sm text-blue-500 transition-all
+        peer-focus:top-0 peer-focus:text-xs peer-focus:px-2 peer-focus:bg-white peer-focus:rounded-lg
+        peer-valid:top-0 peer-valid:text-xs peer-valid:px-2 peer-valid:bg-white peer-valid:rounded-lg
+      "
                   >
                     {label}
                   </span>
                 </label>
               ))}
 
+
               <label className="relative">
                 <textarea
                   rows="4"
                   required
                   placeholder=" "
+                  value={formData["Message"]}
+                  onChange={(e) => setFormData({ ...formData, Message: e.target.value })}
                   className="
                     peer w-full rounded-md resize-none
                     bg-surface px-4 pt-4
